@@ -51,7 +51,13 @@ router.route("/").post(async (req, res) => {
       avatar,
     });
 
-    res.status(200).json({ success: true, data: newPost });
+    res.status(200).json({
+      _id: newPost._id,
+      first_name: newPost.first_name,
+      last_name: newPost.last_name,
+      email: newPost.email,
+      avatar: newPost.avatar,
+    });
   } catch (err) {
     res.status(500).json({
       success: false,
