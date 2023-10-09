@@ -23,7 +23,7 @@ router.route("/:id").get(async (req, res) => {
   const id = req.params.id;
 
   try {
-    const post = await Post.find({id: id});
+    const post = await Post.findById(id);
     res.status(200).json(post);
   } catch (err) {
     res.status(500).json({
