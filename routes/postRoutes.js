@@ -43,8 +43,9 @@ router.route("/:id").get(async (req, res) => {
 
 router.route("/").post(async (req, res) => {
   try {
-    const { first_name, last_name, email, avatar } = req.body;
+    const { first_name, last_name, email, avatar, _id } = req.body;
     const newPost = await Post.create({
+      _id: _id,
       first_name,
       last_name,
       email,
