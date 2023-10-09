@@ -10,7 +10,7 @@ const router = express.Router();
 router.route("/").get(async (req, res) => {
   try {
     const posts = await Post.find({});
-    res.status(200).json({ data: posts });
+    res.status(200).json({ posts });
   } catch (err) {
     res.status(500).json({
       success: false,
@@ -24,7 +24,7 @@ router.route("/:id").get(async (req, res) => {
 
   try {
     const post = await Post.find({id: id});
-    res.status(200).json({ data: post });
+    res.status(200).json({ post });
   } catch (err) {
     res.status(500).json({
       success: false,
