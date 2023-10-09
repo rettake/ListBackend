@@ -60,7 +60,7 @@ router.route("/").post(async (req, res) => {
   }
 });
 
-router.route("/:id").delete(async (req, res) => {
+router.route("/:id").deleteById(async (req, res) => {
   const id = req.params.id;
 
   try {
