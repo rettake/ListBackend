@@ -30,6 +30,7 @@ router.route("/:id").get(async (req, res) => {
         _id: id,
         first_name: post.first_name,
         last_name: post.last_name,
+        email: post.email,
         avatar: post.avatar,
       });
   } catch (err) {
