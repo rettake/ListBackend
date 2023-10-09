@@ -60,11 +60,11 @@ router.route("/").post(async (req, res) => {
   }
 });
 
-router.route("/:id").deleteById(async (req, res) => {
+router.route("/:id").delete(async (req, res) => {
   const id = req.params.id;
 
   try {
-    const data = await Post.deleteOne({ id: id });
+    const data = await Post.deleteOne({ _id: id });
 
     res.status(200).json({ success: true, data: data });
   } catch (err) {
