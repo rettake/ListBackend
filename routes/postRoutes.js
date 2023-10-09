@@ -24,7 +24,14 @@ router.route("/:id").get(async (req, res) => {
 
   try {
     const post = await Post.findById(id);
-    res.status(200).json({...post});
+    res
+      .status(200)
+      .json({
+        _id: id,
+        first_name: post.first_name,
+        last_name: post.last_name,
+        avatar: post.avatar,
+      });
   } catch (err) {
     res.status(500).json({
       success: false,
@@ -53,10 +60,10 @@ router.route("/").post(async (req, res) => {
 });
 
 router.route("/:id").delete(async (req, res) => {
-  const id = req.params.id
+  const id = req.params.id;
 
   try {
-    const data = await Post.deleteOne({id: id});
+    const data = await Post.deleteOne({ id: id });
 
     res.status(200).json({ success: true, data: data });
   } catch (err) {
